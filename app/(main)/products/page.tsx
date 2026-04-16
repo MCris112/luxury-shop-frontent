@@ -1,5 +1,6 @@
 import { fetchProductList } from './productService';
 import ProductContent from './ProductContent';
+import { fetchCategoryList } from '@/app/(admin)/admin/categories/categoryService';
 
 const PRODUCTS = [
   { id: '1', name: 'Solaris Earrings', price: '$1,200', category: 'Earrings', image: '/earrings.png' },
@@ -14,9 +15,11 @@ export default async function ProductsPage() {
 
   const products = await fetchProductList();
 
+  const categories = await fetchCategoryList();
+
   return (
     <div className="min-h-screen flex flex-col">
-      <ProductContent data={products} />
+      <ProductContent data={products} categories={categories} />
     </div>
   );
 }

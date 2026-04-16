@@ -2,8 +2,10 @@ import { fetchJson, fetchJsonDelete, fetchJsonPost, fetchJsonPut } from "@/core/
 import parseApi from "@/core/parse-api";
 import { Product } from "./product.types";
 
-export function fetchProductList() {
-    return fetchJson<Product[]>(parseApi("products"))
+export function fetchProductList(categories?: string[]) {
+
+    console.log(parseApi("products", { categories }))
+    return fetchJson<Product[]>(parseApi("products", { categories }))
 }
 
 export function fetchProductStore(product: Product) {

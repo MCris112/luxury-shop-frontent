@@ -3,8 +3,10 @@
 import { useState } from "react";
 import { Product } from "./product.types";
 import { ProductCard } from "@/app/(main)/products/ProductCard";
+import { Category } from "@/app/(admin)/admin/categories/category.types";
+import Link from "next/link";
 
-export default function ProductContent({ data }: { data: Product[] }) {
+export default function ProductContent({ data, categories }: { data: Product[], categories: Category[] }) {
     const [product, setProducts] = useState<Product[]>(data);
 
 
@@ -18,13 +20,14 @@ export default function ProductContent({ data }: { data: Product[] }) {
                     </div>
 
                     <div className="flex gap-8 mt-12 md:mt-0">
-                        {['All', 'Earrings', 'Rings', 'Bracelets', 'Necklaces'].map((filter) => (
-                            <button
-                                key={filter}
+                        {categories.map((category) => (
+                            <Link
+                                key={category.id}
                                 className="text-xs uppercase tracking-[0.2em] font-medium hover:text-accent transition-colors duration-500 pb-2 border-b border-transparent hover:border-accent"
+                                href={`/categorias/${category.slug}`}
                             >
-                                {filter}
-                            </button>
+                                {category.name}
+                            </Link>
                         ))}
                     </div>
                 </div>
