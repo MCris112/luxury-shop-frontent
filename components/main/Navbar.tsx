@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useState } from 'react';
 import { useAuth } from '@/app/auth/AuthProvider';
-import { LoginModal } from './auth/LoginModal';
+import { LoginModal } from '../../app/auth/LoginModal';
 
 export const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
@@ -20,41 +20,52 @@ export const Navbar = () => {
           </Link>
 
           <div className="hidden md:flex items-center gap-12">
-            {['home', 'products', 'about'].map((item) => (
+            {[
+              { label: 'inicio', path: '/' },
+              { label: 'productos', path: '/products' },
+              { label: 'sobre nosotros', path: '/about' },
+              { label: 'admin', path: '/admin' }
+            ].map((item) => (
               <Link
-                key={item}
-                href={item === 'home' ? '/' : `/${item}`}
+                key={item.label}
+                href={item.path}
                 className="text-xs uppercase tracking-[0.3em] text-foreground hover:text-accent transition-colors duration-500 font-medium"
               >
-                {item}
+                {item.label}
               </Link>
             ))}
           </div>
 
           <div className="flex items-center gap-8">
             {isAuthenticated ? (
-              <div className="flex items-center gap-8">
-                <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-accent">
-                  {user?.name}
-                </span>
-                <button
-                  onClick={logout}
-                  className="text-[10px] uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500"
-                >
-                  Logout
-                </button>
-              </div>
+              <>
+                <div className="flex items-center gap-8">
+                  <span className="text-[10px] uppercase tracking-[0.3em] font-medium text-accent">
+                    {user?.name}
+                  </span>
+                  <button
+                    onClick={logout}
+                    className="text-[10px] uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500"
+                  >
+                    Salir
+                  </button>
+                </div>
+
+                <Link href="/admin" className="text-xs uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500">
+                  Panel
+                </Link>
+              </>
             ) : (
               <button
                 onClick={() => setIsLoginOpen(true)}
                 className="text-xs uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500"
               >
-                Sign In
+                Acceder
               </button>
             )}
 
             <Link href="/checkout" className="text-xs uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500 flex items-center gap-2">
-              Bag <span className="text-[10px] text-muted-fg">(0)</span>
+              Bolsa <span className="text-[10px] text-muted-fg">(0)</span>
             </Link>
           </div>
         </div>

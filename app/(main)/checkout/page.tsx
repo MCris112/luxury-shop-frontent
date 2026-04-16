@@ -1,41 +1,38 @@
-import { Navbar } from '../components/Navbar';
-import { Footer } from '../components/Footer';
-import { Button } from '../components/ui/Button';
-import { Input } from '../components/ui/Input';
+import { Button } from '@/components/ui/Button';
+import { Input } from '@/components/ui/Input';
 import Image from 'next/image';
 
 export default function CheckoutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
 
       <section className="pt-40 pb-32">
         <div className="max-w-[1600px] mx-auto px-8 md:px-16">
-          <h1 className="text-5xl font-serif mb-16 tracking-tight">Checkout</h1>
+          <h1 className="text-5xl font-serif mb-16 tracking-tight">Finalizar Pedido</h1>
 
           <div className="grid grid-cols-1 md:grid-cols-12 gap-24">
             <div className="md:col-span-7 flex flex-col gap-16">
               <div className="border-t border-foreground/10 pt-12">
-                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">01 — Shipping Information</h2>
+                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">01 — Información de Envío</h2>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12">
-                  <Input placeholder="First Name" />
-                  <Input placeholder="Last Name" />
+                  <Input placeholder="Nombre" />
+                  <Input placeholder="Apellido" />
                   <div className="col-span-2">
-                    <Input placeholder="Address" />
+                    <Input placeholder="Dirección" />
                   </div>
-                  <Input placeholder="City" />
-                  <Input placeholder="Postal Code" />
+                  <Input placeholder="Ciudad" />
+                  <Input placeholder="Código Postal" />
                 </div>
               </div>
 
               <div className="border-t border-foreground/10 pt-12">
-                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">02 — Payment Method</h2>
+                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">02 — Método de Pago</h2>
                 <div className="flex gap-12 mb-12">
                   <label className="flex items-center gap-3 cursor-pointer group">
                     <div className="w-4 h-4 border border-foreground rounded-none flex items-center justify-center">
                       <div className="w-2 h-2 bg-accent" />
                     </div>
-                    <span className="text-xs uppercase tracking-[0.2em]">Credit Card</span>
+                    <span className="text-xs uppercase tracking-[0.2em]">Tarjeta de Crédito</span>
                   </label>
                   <label className="flex items-center gap-3 cursor-pointer opacity-40 hover:opacity-100 transition-opacity">
                     <div className="w-4 h-4 border border-foreground rounded-none" />
@@ -44,19 +41,19 @@ export default function CheckoutPage() {
                 </div>
                 <div className="grid grid-cols-2 gap-x-8 gap-y-12">
                   <div className="col-span-2">
-                    <Input placeholder="Card Number" />
+                    <Input placeholder="Número de Tarjeta" />
                   </div>
-                  <Input placeholder="Expiry Date (MM/YY)" />
+                  <Input placeholder="Fecha de Vencimiento (MM/AA)" />
                   <Input placeholder="CVV" />
                 </div>
               </div>
 
-              <Button size="lg" className="w-full md:w-auto">Complete Purchase — $1,200</Button>
+              <Button size="lg" className="w-full md:w-auto">Completar Compra — $1,200</Button>
             </div>
 
             <div className="md:col-span-5">
               <div className="bg-muted-bg/30 p-12 border-t-4 border-accent">
-                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">Your Selection (1)</h2>
+                <h2 className="text-[10px] uppercase tracking-[0.3em] font-medium mb-12">Su Selección (1)</h2>
 
                 <div className="flex gap-6 pb-12 border-b border-foreground/10">
                   <div className="w-24 aspect-[3/4] relative bg-muted-bg">
@@ -82,8 +79,8 @@ export default function CheckoutPage() {
                     <span>$1,200</span>
                   </div>
                   <div className="flex justify-between text-sm uppercase tracking-[0.1em]">
-                    <span className="text-muted-fg">Shipping</span>
-                    <span className="text-accent italic">Complimentary</span>
+                    <span className="text-muted-fg">Envío</span>
+                    <span className="text-accent italic">Cortesia</span>
                   </div>
                   <div className="flex justify-between text-xl font-serif pt-6 border-t border-foreground/10 mt-6 font-bold">
                     <span>Total</span>
@@ -92,16 +89,14 @@ export default function CheckoutPage() {
                 </div>
 
                 <p className="text-[10px] text-muted-fg leading-relaxed mt-12 text-center">
-                  Secure checkout powered by AURUM. <br />
-                  Free international shipping on all orders.
+                  Pago seguro procesado por AURUM. <br />
+                  Envío internacional gratuito en todos los pedidos.
                 </p>
               </div>
             </div>
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

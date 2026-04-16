@@ -1,11 +1,8 @@
-import { Navbar } from '../components/Navbar';
-import { Footer } from '../components/Footer';
 import Image from 'next/image';
 
 export default function AboutPage() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
 
       <section className="pt-40 pb-32">
         <div className="max-w-[1600px] mx-auto px-8 md:px-16 text-center">
@@ -74,8 +71,6 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

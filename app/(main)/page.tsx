@@ -1,14 +1,10 @@
-import { Navbar } from './components/Navbar';
-import { Footer } from './components/Footer';
-import { Button } from './components/ui/Button';
-import { ProductCard } from './components/ui/ProductCard';
+import { Button } from '@/components/ui/Button';
+import { ProductCard } from '@/app/(main)/products/ProductCard';
 import Image from 'next/image';
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
-      <Navbar />
-
       {/* Hero Section */}
       <section className="relative h-screen flex items-center pt-20 overflow-hidden">
         <div className="max-w-[1600px] mx-auto px-8 md:px-16 w-full grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
@@ -61,7 +57,7 @@ export default function Home() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-            <ProductCard
+            {/* <ProductCard
               id="1"
               name="Solaris Earrings"
               price="$1,200"
@@ -81,7 +77,7 @@ export default function Home() {
               price="$1,850"
               category="Bracelets"
               image="/bracelet.png"
-            />
+            /> */}
           </div>
         </div>
       </section>
@@ -115,8 +111,6 @@ export default function Home() {
           </div>
         </div>
       </section>
-
-      <Footer />
     </div>
   );
 }

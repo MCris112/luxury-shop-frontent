@@ -1,9 +1,9 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Modal } from '../ui/Modal';
-import { Input } from '../ui/Input';
-import { Button } from '../ui/Button';
+import { Modal } from '../../components/ui/Modal';
+import { Input } from '../../components/ui/Input';
+import { Button } from '../../components/ui/Button';
 import { useAuth } from '@/app/auth/AuthProvider';
 
 interface LoginModalProps {
@@ -27,26 +27,26 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
       await login({ email, password });
       onClose();
     } catch (err: any) {
-      setError(err.message || 'Authentication failed. Please check your credentials.');
+      setError(err.message || 'Error de autenticación. Por favor verifique sus credenciales.');
     } finally {
       setIsLoading(false);
     }
   };
 
   return (
-    <Modal isOpen={isOpen} onClose={onClose} title="Sign In">
+    <Modal isOpen={isOpen} onClose={onClose} title="Acceder">
       <form onSubmit={handleSubmit} className="flex flex-col gap-10">
         <div className="flex flex-col gap-8">
-          <Input 
-            label="Email Address"
+          <Input
+            label="Correo Electrónico"
             type="email"
-            placeholder="email@example.com"
+            placeholder="email@ejemplo.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
           />
-          <Input 
-            label="Password"
+          <Input
+            label="Contraseña"
             type="password"
             placeholder="••••••••"
             value={password}
@@ -62,16 +62,16 @@ export const LoginModal = ({ isOpen, onClose }: LoginModalProps) => {
         )}
 
         <div className="flex flex-col gap-6 pt-4">
-          <Button 
-            type="submit" 
-            size="lg" 
+          <Button
+            type="submit"
+            size="lg"
             disabled={isLoading}
           >
-            {isLoading ? 'Processing —' : 'Enter —'}
+            {isLoading ? 'Procesando —' : 'Ingresar —'}
           </Button>
           <p className="text-[10px] uppercase tracking-[0.2em] text-muted-fg text-center leading-relaxed">
-            By signing in, you agree to our <br />
-            <span className="text-foreground hover:text-accent cursor-pointer transition-colors duration-300">Terms of Service</span> and <span className="text-foreground hover:text-accent cursor-pointer transition-colors duration-300">Privacy Policy</span>.
+            Al acceder, usted acepta nuestros <br />
+            <span className="text-foreground hover:text-accent cursor-pointer transition-colors duration-300">Términos de Servicio</span> y <span className="text-foreground hover:text-accent cursor-pointer transition-colors duration-300">Política de Privacidad</span>.
           </p>
         </div>
       </form>
