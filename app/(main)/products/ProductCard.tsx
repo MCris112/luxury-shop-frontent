@@ -6,7 +6,7 @@ import { Product } from '@/app/(main)/products/product.types';
 export const ProductCard = ({ product }: { product: Product }) => {
   return (
     <div className="group cursor-pointer">
-      <div className="relative aspect-[3/4] overflow-hidden bg-muted-bg mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-shadow duration-[1500ms]">
+      <div className="relative aspect-square overflow-hidden bg-muted-bg mb-6 shadow-[0_4px_24px_rgba(0,0,0,0.08)] group-hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] transition-shadow duration-[1500ms]">
         <Image
           src={product.image}
           alt={product.name}
@@ -14,9 +14,11 @@ export const ProductCard = ({ product }: { product: Product }) => {
           className="object-cover grayscale group-hover:grayscale-0 scale-100 group-hover:scale-105 transition-all duration-[1500ms] ease-[cubic-bezier(0.25,0.46,0.45,0.94)]"
         />
         <div className="absolute top-4 left-4 z-10">
-          {/* <span className="text-[10px] uppercase tracking-[0.3em] bg-background/80 backdrop-blur-sm px-3 py-1 text-foreground">
-            {product.category}
-          </span> */}
+          {product.categories.map((category) => (
+            <span key={category.id} className="text-[10px] uppercase tracking-[0.3em] bg-background/80 backdrop-blur-sm px-3 py-1 text-foreground">
+              {category.name}
+            </span>
+          ))}
         </div>
       </div>
 

@@ -1,0 +1,160 @@
+{
+    "users": [
+        {
+            "name": "Admin",
+            "email": "test@example.com",
+            "password": "password",
+            "role": "admin"
+        }
+    ],
+    "categories": [
+        {
+            "name": "joyeria",
+            "slug": "joyeria"
+        },
+        {
+            "name": "relojes",
+            "slug": "relojes"
+        },
+        {
+            "name": "accesorios",
+            "slug": "accesorios"
+        },
+        {
+            "name": "Decoraciones",
+            "slug": "decoraciones"
+        }
+    ],
+    "products": [
+        {
+            "name": "Collar Ariana Grande x Swarovski",
+            "information": "Este collar bañado en rodio, que evoca la belleza de la naturaleza, presenta un strand integral de delicadas flores, cada una elaborada con un centro de cristal y pétalos adornados",
+            "content": "<p>Este collar bañado en rodio, que evoca la belleza de la naturaleza, presenta un strand integral de delicadas flores, cada una elaborada con un centro de cristal y pétalos adornados con resplandeciente pavé. Como una radiante cadena de margaritas, este collar que refleja la luz se puede llevar con la pulsera a juego para una combinación atemporal.</p>\n    <input id=\"classification_true\" type=\"hidden\" value=\"Sí\">\n<input id=\"classification_false\" type=\"hidden\" value=\"No\">\n<ul>\n  <li data-article-number=\"5749179\">Referencia:&nbsp;5749179</li>\n  <li>Colección:&nbsp;\n      Ariana Grande x Swarovski</li>\n        <li>Largo (mínimo - máximo): 38 - 41 cm</li>\n                  <li>Ancho: 2.4 cm</li>\n                  <li>Material:&nbsp;\n      Cristales,&nbsp;Baño de rodio</li>\n        <li>Color:&nbsp;\n      Blanco</li>\n        <li>Tipo de cierre:&nbsp;\n      Cierre plegable</li>\n        </ul>",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5749179_png/collar-ariana-grande-x-swarovski--talla-redonda--flor--blanco--ba%C3%B1o-de-rodio-swarovski-5749179.png",
+            "price": 280.0,
+            "categories": [
+                "joyeria"
+            ]
+        },
+        {
+            "name": "Anillo de cóctel Stilla",
+            "information": "Para demostrar que hay poder en la simplicidad, este anillo Stilla es un artículo básico del armario",
+            "content": " <p>Para demostrar que hay poder en la simplicidad, este anillo Stilla es un artículo básico del armario. Elaborada por expertos, la piedra central de talla princesa, que es el centro de atención, está realzada con un elegante pavé a lo largo del diseño y de la banda. Llévalo solo y brilla con luz propia.</p>\n    <input id=\"classification_true\" type=\"hidden\" value=\"Sí\">\n<input id=\"classification_false\" type=\"hidden\" value=\"No\">\n<ul>\n  <li data-article-number=\"5717932\">Referencia:&nbsp;5717932</li>\n  <li>Colección:&nbsp;\n      Stilla</li>\n        <li>Material:&nbsp;\n      Acabado en tono plateado,&nbsp;Cristales,&nbsp;Cubic Zirconia</li>\n        <li>Color:&nbsp;\n      Blanco</li>\n        </ul>",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5717932_png/anillo-de-c%C3%B3ctel-stilla--talla-redonda--pav%C3%A9--blanco--acabado-en-tono-plateado-swarovski-5717932.png",
+            "price": 139,
+            "categories": [
+                "joyeria"
+            ]
+        },
+        {
+            "name": "Collar Ariana Grande x Swarovski",
+            "information": "Este collar de Swarovski, que irradia amor, es tan romántico como brillante",
+            "content": " <p>Este collar de Swarovski, que irradia amor, es tan romántico como brillante. El diseño con baño de rodio presenta un círculo completo de cristales en forma de corazón, cada uno rodeado por un halo resplandeciente de pavé transparente. Luce este collar con otros accesorios a juego para crear tus propias combinaciones expresivas.</p><input id=\"classification_true\" type=\"hidden\" value=\"Sí\">\n<input id=\"classification_false\" type=\"hidden\" value=\"No\">\n<ul>\n  <li data-article-number=\"5720857\">Referencia:&nbsp;5720857</li>\n  <li>Colección:&nbsp;\n      Ariana Grande x Swarovski</li>\n        <li>Largo (mínimo - máximo): 38 - 45.6 cm</li>\n                  <li>Ancho: 2.1 cm</li>\n                  <li>Material:&nbsp;\n      Cristales,&nbsp;Baño de rodio</li>\n        <li>Color:&nbsp;\n      Blanco</li>\n        <li>Tipo de cierre:&nbsp;\n      Cierre plegable</li>\n        </ul>",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5720857_png/collar-ariana-grande-x-swarovski--tallas-mixtas--coraz%C3%B3n--blanco--ba%C3%B1o-de-rodio-swarovski-5720857.png",
+            "price": 280.0,
+            "categories": [
+                "joyeria"
+            ]
+        },
+        {
+            "name": "Colgante Ariana Grande x Swarovski",
+            "information": "Este evocador colgante de libélula, símbolo de transformación, pende de una delicada cadena y presenta un motivo central bañado en rodio",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5737383_png/colgante-ariana-grande-x-swarovski--tallas-mixtas--lib%C3%A9lula--multicolor--ba%C3%B1o-de-rodio-swarovski-5737383.png",
+            "price": 129,
+            "categories": [
+                "joyeria"
+            ]
+        },
+        {
+            "name": "Reloj Cosmopolitan",
+            "information": "Apuesta por lo chic con este reloj Cosmopolitan con denominación Swiss Made.",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5755660_png/reloj-cosmopolitan--fabricado-en-suiza--brazalete-de-metal--tono-plateado--combinaci%C3%B3n-de-acabados-met%C3%A1licos-swarovski-5755660.png",
+            "price": 250,
+            "categories": [
+                "relojes"
+            ]
+        },
+        {
+            "name": "Reloj Gema",
+            "information": "Este reloj de Swarovski, con su cautivadora colisión de formas, está inspirado en la familia de accesorios Gema",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5749569_png_var1/reloj-gema--pulsera-de-cristal--tono-dorado--acabado-tono-oro-swarovski-5749569.png",
+            "price": 120,
+            "categories": [
+                "relojes"
+            ]
+        },
+        {
+            "name": "Reloj",
+            "information": "Inspirado en la familia de accesorios Millenia, este reloj de color inspirado en los caramelos ofrece un atractivo sensacional para la muñeca.",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5722364_png_var1/reloj--pulsera-de-talla-octogonal--morado--acabado-tono-oro-champ%C3%A1n-swarovski-5722364.png",
+            "price": 430,
+            "categories": [
+                "relojes"
+            ]
+        },
+        {
+            "name": "Llavero Minions Bob",
+            "information": "Abre la puerta a alguna travesura con este llavero de acero inoxidable de los Minions,",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_913/5746382_png/llavero-minions-bob--multicolor--acero-inoxidable-swarovski-5746382.png",
+            "price": 79,
+            "categories": [
+                "accesorios"
+            ]
+        },
+        {
+            "name": "Gafas de sol",
+            "information": "La precisión se une a la fantasía en estas gafas de sol de Swarovski, inspiradas en las formas orgánicas de la familia de accesorios Sublima",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_913/5765704_png/gafas-de-sol--forma-de-mariposa--sk6031--moradas-swarovski-5765704.png",
+            "price": 159,
+            "categories": [
+                "accesorios"
+            ]
+        },
+        {
+            "name": "Llavero",
+            "information": "Elaborado con la forma de un candado, este llavero bañado en tono oro simboliza el amor duradero y la amistad inquebrantable",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_675/5733765_png/llavero--talla-ovalada--blanco--ba%C3%B1o-tono-oro-swarovski-5733765.png",
+            "price": 120,
+            "categories": [
+                "accesorios"
+            ]
+        },
+        {
+            "name": "Ariana Grande x Swarovski Mariposa",
+            "information": "",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1200/t_swa103/b_rgb:ffffff,c_scale,dpr_1.0,f_auto,w_360/5750818_png/%E2%80%8Eariana-grande-x-swarovski-mariposa-swarovski-5750818.png",
+            "price": 99,
+            "categories": [
+                "decoraciones"
+            ]
+        },
+        {
+            "name": "Rosa encantada",
+            "information": "Esta representación auténtica y detallada de la emblemática rosa de la película La Bella y la Bestia es una romántica idea de regalo y una pieza imprescindible para los coleccionistas de Disney",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_913/5230478_png/rosa-encantada-swarovski-5230478.png",
+            "price": 179,
+            "categories": [
+                "decoraciones"
+            ]
+        },
+        {
+            "name": "Shrek Shrek",
+            "information": "Embárcate en un caprichoso viaje al reino de Muy Muy Lejano ahora que Swarovski rinde homenaje a Shrek, la emblemática película de DreamWorks Animation",
+            "content": "",
+            "image": "https://asset.swarovski.com/images/$size_1450/t_swa103/b_rgb:ffffff,c_scale,dpr_2.0,f_auto,w_913/5720462_png/shrek-shrek-swarovski-5720462.png",
+            "price": 650,
+            "categories": [
+                "decoraciones"
+            ]
+        }
+    ]
+}

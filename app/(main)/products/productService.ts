@@ -1,6 +1,6 @@
 import { fetchJson, fetchJsonDelete, fetchJsonPost, fetchJsonPut } from "@/core/fetch-json";
 import parseApi from "@/core/parse-api";
-import { Product } from "./product.types";
+import { Product, ProductStore } from "./product.types";
 
 export function fetchProductList(categories?: string[]) {
 
@@ -8,11 +8,11 @@ export function fetchProductList(categories?: string[]) {
     return fetchJson<Product[]>(parseApi("products", { categories }))
 }
 
-export function fetchProductStore(product: Product) {
+export function fetchProductStore(product: ProductStore) {
     return fetchJsonPost<Product>(parseApi(`products`), product)
 }
 
-export function fetchProductUpdate(id: string, product: Product) {
+export function fetchProductUpdate(id: string, product: ProductStore) {
     return fetchJsonPut<Product>(parseApi(`products/${id}`), product)
 }
 

@@ -11,3 +11,15 @@ export interface Product {
 
     categories: Category[];
 }
+
+export interface ProductStore {
+    name: string;
+    slug: string;
+    information: string;
+    content: string;
+
+    price: number;
+    image: string;
+
+    categories: string[];
+}

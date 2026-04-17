@@ -1,4 +1,64 @@
+'use client'
+
+import { fetchProductStore } from '@/app/(main)/products/productService';
+import seederData from '../seeder.json';
+import { fetchCategoryStore } from './categories/categoryService';
+import { fetchUserStore } from './users/userService';
+
 export default function AdminDashboard() {
+
+  /**
+   * Loads seed data progressively to ensure data integrity.
+   * Order: Users -> Categories -> Products
+   */
+  const loadPreData = async () => {
+    const { users, categories, products } = seederData;
+
+    try {
+      // 1. Load Users first
+      console.log("Starting to load users...");
+      for (const u of users) {
+        try {
+          const result = await fetchUserStore(u);
+          console.log("User added correctly:", result);
+        } catch (error) {
+          console.warn("Skipping user (already exists or error):", u.email);
+        }
+      }
+
+      // 2. Load Categories after users are finished
+      console.log("Starting to load categories...");
+      for (const c of categories) {
+        try {
+          const result = await fetchCategoryStore(c);
+          console.log("Category added correctly:", result);
+        } catch (error) {
+          console.warn("Skipping category (already exists or error):", c.slug);
+        }
+      }
+
+      // 3. Finally, load Products once categories exist
+      console.log("Starting to load products...");
+      for (const p of products) {
+        try {
+          const product = {
+            ...p,
+            slug: p.name.toLowerCase().replace(/ /g, "-")
+          };
+          const result = await fetchProductStore(product);
+          console.log("Product added correctly:", result);
+        } catch (error) {
+          console.warn("Skipping product (already exists or error):", p.name);
+        }
+      }
+
+      alert("Data loaded successfully!");
+    } catch (error) {
+      console.error("Error loading pre-data:", error);
+      alert("Failed to load some data. Check console for details.");
+    }
+  };
+
   return (
     <div className="p-8">
       <h1 className="text-3xl font-serif mb-8 text-accent">Admin Dashboard</h1>
@@ -25,6 +85,9 @@ export default function AdminDashboard() {
           </button>
         </div>
       </div>
+
+      <button className='px-4 py-2 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity' onClick={loadPreData} >Carcar valores iniciales</button>
     </div>
   );
 }
+
