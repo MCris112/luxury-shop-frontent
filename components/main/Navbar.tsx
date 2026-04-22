@@ -5,9 +5,12 @@ import { useState } from 'react';
 import { useAuth } from '@/app/auth/AuthProvider';
 import { LoginModal } from '../../app/auth/LoginModal';
 
+import { useCart } from '@/app/(shop)/CartProvider';
+
 export const Navbar = () => {
   const { isAuthenticated, user, logout } = useAuth();
   const [isLoginOpen, setIsLoginOpen] = useState(false);
+  const { totalItems, setIsCartOpen } = useCart();
 
   return (
     <>
@@ -15,7 +18,7 @@ export const Navbar = () => {
         <div className="max-w-[1600px] mx-auto px-8 md:px-16 h-20 flex items-center justify-between">
           <Link href="/" className="group">
             <span className="font-serif text-2xl tracking-[0.1em] uppercase font-bold text-foreground group-hover:text-accent transition-colors duration-500">
-              AURUM
+              LUXURY
             </span>
           </Link>
 
@@ -64,9 +67,12 @@ export const Navbar = () => {
               </button>
             )}
 
-            <Link href="/checkout" className="text-xs uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500 flex items-center gap-2">
-              Bolsa <span className="text-[10px] text-muted-fg">(0)</span>
-            </Link>
+            <button
+              onClick={() => setIsCartOpen(true)}
+              className="text-xs uppercase tracking-[0.3em] font-medium hover:text-accent transition-colors duration-500 flex items-center gap-2"
+            >
+              Bolsa <span className="text-[10px] text-muted-fg">({totalItems})</span>
+            </button>
           </div>
         </div>
       </nav>

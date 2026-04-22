@@ -1,7 +1,7 @@
 import { Category } from "@/app/(admin)/admin/categories/category.types";
 
 export interface Product {
-    id: string;
+    id: number;
     name: string;
     information: string;
     content: string;

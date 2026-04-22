@@ -7,6 +7,7 @@ import { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
 import { fetchProductDelete } from "@/app/(main)/products/productService";
+import Image from "next/image";
 
 export default function ProductContent({ data }: { data: Product[] }) {
     const [products, setProducts] = useState<Product[]>(data);
@@ -30,7 +31,7 @@ export default function ProductContent({ data }: { data: Product[] }) {
                 actionLabel="Añadir Producto"
                 href="/admin/products/create"
                 actionIcon={Plus} />
-                
+
             <div className="bg-white/40 backdrop-blur-md border border-black/5 rounded-sm overflow-hidden">
                 <div className="p-4 border-b border-black/5 flex justify-between items-center">
                     <div className="relative w-72">
@@ -55,7 +56,7 @@ export default function ProductContent({ data }: { data: Product[] }) {
                             <tr key={p.id} className="hover:bg-white/60 transition-colors group">
                                 <td className="px-6 py-4">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-muted-bg rounded-sm flex-shrink-0" />
+                                        <Image src={p.image} alt={p.name} width={100} height={100} className="w-12 h-12 bg-muted-bg rounded-sm flex-shrink-0" />
                                         <span className="font-serif text-lg">{p.name}</span>
                                     </div>
                                 </td>
@@ -65,13 +66,13 @@ export default function ProductContent({ data }: { data: Product[] }) {
                                 <td className="px-6 py-4 text-sm font-sans font-medium">{p.price}</td>
                                 <td className="px-6 py-4 text-right">
                                     <div className="flex justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity">
-                                        <Link 
+                                        <Link
                                             href={`/admin/products/${p.id}/edit`}
                                             className="p-2 hover:bg-accent/10 rounded-full transition-colors"
                                         >
                                             <Edit2 size={14} className="text-muted-fg" />
                                         </Link>
-                                        <button 
+                                        <button
                                             onClick={() => handleDelete(p.id)}
                                             className="p-2 hover:bg-red-50 rounded-full transition-colors text-red-400"
                                         >
