@@ -1,5 +1,6 @@
-import { fetchProductList } from "@/app/(main)/products/productService";
+
 import ProductContent from "./PorductContent";
+import { fetchProductList } from "./productService";
 
 export default async function AdminProducts() {
   // const products = [

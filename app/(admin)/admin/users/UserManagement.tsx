@@ -21,7 +21,8 @@ export default function UserManagement({ initialUsers }: { initialUsers: User[] 
   return (
     <div>
       <UserActionHeader onUserCreated={refreshUsers} />
-      <UserList users={users} />
+      <UserList users={users} onUserDeleted={refreshUsers} />
     </div>
   );
+
 }

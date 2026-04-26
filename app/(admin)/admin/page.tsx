@@ -1,9 +1,10 @@
 'use client'
 
-import { fetchProductStore } from '@/app/(main)/products/productService';
 import seederData from '../seeder.json';
 import { fetchCategoryStore } from './categories/categoryService';
+import { fetchProductStore } from './products/productService';
 import { fetchUserStore } from './users/userService';
+import { Button } from '@/components/ui/Button';
 
 export default function AdminDashboard() {
 
@@ -66,23 +67,25 @@ export default function AdminDashboard() {
         <div className="p-6 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
           <h2 className="text-xl font-serif mb-2">Products</h2>
           <p className="text-muted-foreground mb-4">Manage your luxury catalog</p>
-          <button className="px-4 py-2 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity">
-            View Products
-          </button>
+
+          <Button href='/admin/products' >
+            Ver los productos
+          </Button>
         </div>
         <div className="p-6 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
           <h2 className="text-xl font-serif mb-2">Users</h2>
           <p className="text-muted-foreground mb-4">Manage customers and admins</p>
-          <button className="px-4 py-2 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity">
-            View Users
-          </button>
+
+          <Button href='/admin/users' >
+            Ver los usuarios
+          </Button>
         </div>
         <div className="p-6 border border-white/10 rounded-lg bg-white/5 backdrop-blur-sm">
           <h2 className="text-xl font-serif mb-2">Orders</h2>
           <p className="text-muted-foreground mb-4">Track sales and fulfillments</p>
-          <button className="px-4 py-2 bg-accent text-accent-foreground rounded hover:opacity-90 transition-opacity">
-            View Orders
-          </button>
+          <Button href='/admin/orders' >
+            Ver las ordenes
+          </Button>
         </div>
       </div>
 

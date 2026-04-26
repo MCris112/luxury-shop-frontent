@@ -27,6 +27,7 @@ export const Navbar = () => {
               { label: 'inicio', path: '/' },
               { label: 'productos', path: '/products' },
               { label: 'sobre nosotros', path: '/about' },
+              { label: 'cv', path: '/cv' },
               { label: 'admin', path: '/admin' }
             ].map((item) => (
               <Link

@@ -33,7 +33,7 @@ export interface Order {
     totals: number;
 
     payment: {
-        id: string;
+        paymentId: string;
     }
 
     items: OrderItem[];

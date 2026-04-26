@@ -26,6 +26,11 @@ export default function AdminLayout({ children }: { children: React.ReactNode })
                                 <span className="text-sm tracking-widest uppercase font-sans">Usuarios</span>
                             </Link>
                         </li>
+                        <li>
+                            <Link href="/admin/orders" className="flex items-center px-8 py-3 hover:bg-white/40 transition-colors border-l-2 border-transparent hover:border-accent">
+                                <span className="text-sm tracking-widest uppercase font-sans">Pedidos</span>
+                            </Link>
+                        </li>
                     </ul>
                 </nav>
 

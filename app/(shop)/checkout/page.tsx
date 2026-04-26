@@ -12,8 +12,8 @@ import { Order, OrderStore } from '../shop.types';
 
 // Initialize MP with a placeholder PUBLIC KEY
 // NOTE: Make sure to replace this with your actual public key
-initMercadoPago('APP_USR-67dce6bb-1294-4340-9a29-b6cedf84bc44', {
-  locale: 'es-AR'
+initMercadoPago('APP_USR-07253147-ef94-41d2-882c-021c8d0c94bf', {
+  locale: 'es-PE'
 });
 
 export default function CheckoutPage() {
@@ -75,8 +75,8 @@ export default function CheckoutPage() {
 
       console.log("ORDER RESPONSE", response)
 
-      if (response.preferenceId) {
-        setPreferenceId(response.preferenceId);
+      if (response.payment.paymentId) {
+        setPreferenceId(response.payment.paymentId);
         toast.success("Preferencia de pago generada");
       } else {
         throw new Error("No preferenceId received");
@@ -121,13 +121,6 @@ export default function CheckoutPage() {
                     <div id="wallet_container" className="max-w-md mx-auto">
                       <Wallet
                         initialization={{ preferenceId: preferenceId }}
-                        customization={{
-                          texts: { valueProp: 'smart_option' },
-                          visual: {
-                            buttonBackground: 'black',
-                            borderRadius: '0px',
-                          }
-                        }}
                       />
                     </div>
                   </div>

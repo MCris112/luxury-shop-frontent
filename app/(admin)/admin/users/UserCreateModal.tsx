@@ -3,19 +3,21 @@
 import { Modal } from "@/components/ui/Modal";
 import { Input } from "@/components/ui/Input";
 import { useForm } from "react-hook-form";
-import { userStore } from "./userService";
+import { fetchUserStore } from "./userService";
+import { UserStore } from "./user.types";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Button } from "@/components/ui/Button";
 
 export default function UserCreateModal({ isOpen, onClose, onUserCreated }: { isOpen: boolean, onClose: () => void, onUserCreated: () => void }) {
-    const { register, handleSubmit, reset } = useForm();
+    const { register, handleSubmit, reset } = useForm<UserStore>();
     const [isSubmitting, setIsSubmitting] = useState(false);
 
-    const onSubmit = async (data: any) => {
+    const onSubmit = async (data: UserStore) => {
         setIsSubmitting(true);
         try {
-            await userStore(data);
-            toast.success("Cliente registrado correctamente");
+            await fetchUserStore(data);
+            toast.success("Usuario registrado correctamente");
             reset();
             onUserCreated();
             onClose();
@@ -42,22 +44,17 @@ export default function UserCreateModal({ isOpen, onClose, onUserCreated }: { is
                         type="email" 
                         {...register("email", { required: true })} 
                     />
-                    <Input 
-                        label="Contraseña" 
-                        placeholder="Ingrese clave segura" 
-                        type="password" 
-                        {...register("password", { required: true })} 
-                    />
                 </div>
                 
-                <button 
+                <Button 
                     type="submit" 
                     disabled={isSubmitting}
-                    className="w-full py-4 bg-foreground text-background uppercase tracking-[0.2em] text-xs font-medium hover:bg-black/80 transition-all disabled:opacity-50"
+                    className="w-full"
                 >
                     {isSubmitting ? "Creando..." : "Crear Usuario"}
-                </button>
+                </Button>
             </form>
         </Modal>
     )
 }
+

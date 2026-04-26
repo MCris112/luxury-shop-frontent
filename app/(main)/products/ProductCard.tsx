@@ -2,8 +2,8 @@
 
 import React from 'react';
 import Image from 'next/image';
-import { Product } from '@/app/(main)/products/product.types';
 import { useCart } from '@/app/(shop)/CartProvider';
+import { Product } from '@/app/(admin)/admin/products/product.types';
 
 export const ProductCard = ({ product }: { product: Product }) => {
   const { addToCart } = useCart();

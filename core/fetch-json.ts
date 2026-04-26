@@ -1,11 +1,23 @@
-export async function fetchJson<T>(url: string): Promise<T> {
-
-    const res = await fetch(url);
+async function handleResponse<T>(res: Response, url: string): Promise<T> {
     if (!res.ok) {
-        throw new Error(`Failed to fetch ${url}`);
+        throw new Error(`Failed to fetch ${url} - ${res.status} ${res.statusText}`);
     }
 
-    return res.json();
+    const text = await res.text();
+    if (!text) return {} as T;
+
+    try {
+        return JSON.parse(text);
+    } catch (error) {
+        console.warn(`Failed to parse JSON response from ${url}:`, error);
+        return {} as T;
+    }
+}
+
+
+export async function fetchJson<T>(url: string): Promise<T> {
+    const res = await fetch(url);
+    return handleResponse<T>(res, url);
 }
 
 export async function fetchJsonPost<T>(url: string, data: any): Promise<T> {
@@ -16,10 +28,7 @@ export async function fetchJsonPost<T>(url: string, data: any): Promise<T> {
         },
         body: JSON.stringify(data),
     });
-    if (!res.ok) {
-        throw new Error(`Failed to fetch ${url}`);
-    }
-    return res.json();
+    return handleResponse<T>(res, url);
 }
 
 export async function fetchJsonPut<T>(url: string, data: any): Promise<T> {
@@ -30,18 +39,12 @@ export async function fetchJsonPut<T>(url: string, data: any): Promise<T> {
         },
         body: JSON.stringify(data),
     });
-    if (!res.ok) {
-        throw new Error(`Failed to fetch ${url}`);
-    }
-    return res.json();
+    return handleResponse<T>(res, url);
 }
 
 export async function fetchJsonDelete<T>(url: string): Promise<T> {
     const res = await fetch(url, {
         method: "DELETE",
     });
-    if (!res.ok) {
-        throw new Error(`Failed to fetch ${url}`);
-    }
-    return res.json();
-}
+    return handleResponse<T>(res, url);
+}

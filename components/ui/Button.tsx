@@ -1,8 +1,10 @@
 import React from 'react';
+import Link from 'next/link';
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'ghost' | 'link';
   size?: 'sm' | 'md' | 'lg';
+  href?: string;
 }
 
 export const Button = ({ 
@@ -10,6 +12,7 @@ export const Button = ({
   variant = 'primary', 
   size = 'md', 
   className = '', 
+  href,
   ...props 
 }: ButtonProps) => {
   const baseStyles = "relative overflow-hidden inline-flex items-center justify-center font-sans font-medium uppercase tracking-[0.2em] text-xs transition-all duration-500 cursor-pointer";
@@ -27,26 +30,34 @@ export const Button = ({
     link: "bg-transparent text-foreground hover:text-accent underline-offset-4 hover:underline lowercase tracking-normal text-sm normal-case",
   };
 
-  if (variant === 'primary') {
+  const combinedStyles = `${baseStyles} ${sizeStyles[size]} ${variants[variant]} ${className}`;
+
+  const renderContent = () => {
+    if (variant === 'primary') {
+      return (
+        <>
+          <span className="absolute inset-0 bg-accent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
+          <span className="relative z-10 transition-colors duration-500 group-hover:text-background font-medium">
+            {children}
+          </span>
+        </>
+      );
+    }
+    return children;
+  };
+
+  if (href) {
     return (
-      <button 
-        className={`${baseStyles} ${sizeStyles[size]} ${variants[variant]} ${className}`}
-        {...props}
-      >
-        <span className="absolute inset-0 bg-accent translate-x-[-100%] group-hover:translate-x-0 transition-transform duration-500 ease-[cubic-bezier(0.25,0.46,0.45,0.94)]" />
-        <span className="relative z-10 transition-colors duration-500 group-hover:text-background font-medium">
-          {children}
-        </span>
-      </button>
+      <Link href={href} className={combinedStyles}>
+        {renderContent()}
+      </Link>
     );
   }
 
   return (
-    <button 
-      className={`${baseStyles} ${sizeStyles[size]} ${variants[variant]} ${className}`}
-      {...props}
-    >
-      {children}
+    <button className={combinedStyles} {...props}>
+      {renderContent()}
     </button>
   );
 };
+

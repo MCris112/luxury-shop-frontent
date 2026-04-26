@@ -1,4 +1,5 @@
-import { fetchProductList } from './productService';
+
+import { fetchProductList } from '@/app/(admin)/admin/products/productService';
 import ProductContent from './ProductContent';
 import { fetchCategoryList } from '@/app/(admin)/admin/categories/categoryService';
 

@@ -1,27 +1,40 @@
 'use client';
 
-import { Product } from "@/app/(main)/products/product.types";
 import PageHeader from "@/components/admin/PageHeader";
 import { Plus, Search, Edit2, Trash2 } from "lucide-react";
 import { useState } from "react";
 import Link from "next/link";
 import toast from "react-hot-toast";
-import { fetchProductDelete } from "@/app/(main)/products/productService";
 import Image from "next/image";
+import { useConfirm } from "@/components/admin/ConfirmDialog";
+import { Product } from "./product.types";
+import { fetchProductDelete } from "./productService";
 
 export default function ProductContent({ data }: { data: Product[] }) {
     const [products, setProducts] = useState<Product[]>(data);
+    const confirm = useConfirm();
 
     const handleDelete = async (id: string) => {
-        if (!confirm("¿Está seguro de que desea eliminar este producto?")) return;
-        try {
-            await fetchProductDelete(id);
-            setProducts(products.filter(p => p.id !== id));
-            toast.success("Producto eliminado");
-        } catch (error) {
-            toast.error("Error al eliminar producto");
-        }
+        await confirm({
+            title: "Eliminar Producto",
+            description: "¿Está seguro de que desea eliminar este producto de la colección? Esta acción es permanente.",
+            confirmLabel: "Eliminar",
+            cancelLabel: "Mantener",
+            variant: "danger",
+            onConfirm: async () => {
+                try {
+                    await fetchProductDelete(id);
+                    setProducts(products.filter(p => p.id !== id));
+                    toast.success("Producto eliminado");
+                } catch (error) {
+                    toast.error("Error al eliminar producto");
+                    throw error;
+                }
+            }
+        });
     };
+
+
 
     return (
         <>

@@ -1,7 +1,7 @@
 import { Button } from '@/components/ui/Button';
 import { ProductCard } from '@/app/(main)/products/ProductCard';
 import Image from 'next/image';
-import { fetchProductList } from './products/productService';
+import { fetchProductList } from '../(admin)/admin/products/productService';
 
 export default async function Home() {
 

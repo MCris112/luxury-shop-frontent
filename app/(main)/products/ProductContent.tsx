@@ -1,13 +1,12 @@
 'use client'
 
 import { useState, useEffect } from "react";
-import { Product } from "./product.types";
 import { ProductCard } from "@/app/(main)/products/ProductCard";
 import { Category } from "@/app/(admin)/admin/categories/category.types";
-import Link from "next/link";
-import { fetchProductList } from "./productService";
 import { useForm } from "react-hook-form";
 import { ChevronDown, SlidersHorizontal, X } from "lucide-react";
+import { Product } from "@/app/(admin)/admin/products/product.types";
+import { fetchProductList } from "@/app/(admin)/admin/products/productService";
 
 interface FilterForm {
     searchTerm: string;
@@ -38,14 +37,14 @@ export default function ProductContent({ data, categories }: { data: Product[], 
         let filtered = data;
 
         if (searchTerm) {
-            filtered = filtered.filter(p => 
-                p.name.toLowerCase().includes(searchTerm.toLowerCase()) || 
+            filtered = filtered.filter(p =>
+                p.name.toLowerCase().includes(searchTerm.toLowerCase()) ||
                 p.information?.toLowerCase().includes(searchTerm.toLowerCase())
             );
         }
 
         if (selectedCategories.length > 0) {
-            filtered = filtered.filter(p => 
+            filtered = filtered.filter(p =>
                 p.categories.some(c => selectedCategories.includes(c.slug))
             );
         }
@@ -70,7 +69,7 @@ export default function ProductContent({ data, categories }: { data: Product[], 
             setIsLoading(true);
             try {
                 const results = await fetchProductList(
-                    selectedCategories.length > 0 ? selectedCategories : undefined, 
+                    selectedCategories.length > 0 ? selectedCategories : undefined,
                     searchTerm || undefined,
                     minPrice ? Number(minPrice) : undefined,
                     maxPrice ? Number(maxPrice) : undefined
@@ -104,7 +103,7 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                     <div className="max-w-xl w-full">
                         <h1 className="text-6xl md:text-8xl font-serif tracking-tight mb-4">Nuestra <span className="italic">Colección</span></h1>
                         <p className="text-muted-fg uppercase tracking-[0.2em] text-xs mb-8">Una curaduría de elegancia atemporal</p>
-                        
+
                         <div className="flex items-center gap-6">
                             <div className="relative group flex-1">
                                 <input
@@ -115,8 +114,8 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                                 />
                                 <div className="absolute bottom-0 left-0 h-px bg-accent w-0 group-focus-within:w-full transition-all duration-700"></div>
                             </div>
-                            
-                            <button 
+
+                            <button
                                 onClick={() => setIsFilterOpen(!isFilterOpen)}
                                 className={`flex items-center gap-2 text-xs uppercase tracking-[0.3em] font-medium transition-colors duration-500 py-3 border-b ${isFilterOpen ? 'border-accent text-accent' : 'border-transparent text-foreground hover:text-accent'}`}
                             >
@@ -148,8 +147,8 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                                 {categories.map((category) => (
                                     <label key={category.id} className="flex items-center gap-3 cursor-pointer group w-fit">
                                         <div className="relative">
-                                            <input 
-                                                type="checkbox" 
+                                            <input
+                                                type="checkbox"
                                                 value={category.slug}
                                                 {...register("categories")}
                                                 className="peer hidden"
@@ -172,9 +171,9 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                             <div className="flex items-center gap-4">
                                 <div className="flex-1">
                                     <span className="text-[9px] uppercase tracking-widest text-muted-fg/60 block mb-2">Mínimo</span>
-                                    <input 
+                                    <input
                                         {...register("minPrice")}
-                                        type="number" 
+                                        type="number"
                                         placeholder="0"
                                         className="w-full bg-transparent border-b border-foreground/10 focus:border-accent outline-none py-2 font-serif italic text-base transition-all"
                                     />
@@ -182,9 +181,9 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                                 <div className="h-px w-4 bg-foreground/10 mt-6"></div>
                                 <div className="flex-1">
                                     <span className="text-[9px] uppercase tracking-widest text-muted-fg/60 block mb-2">Máximo</span>
-                                    <input 
+                                    <input
                                         {...register("maxPrice")}
-                                        type="number" 
+                                        type="number"
                                         placeholder="10,000"
                                         className="w-full bg-transparent border-b border-foreground/10 focus:border-accent outline-none py-2 font-serif italic text-base transition-all"
                                     />
@@ -193,7 +192,7 @@ export default function ProductContent({ data, categories }: { data: Product[], 
                         </div>
 
                         <div className="flex flex-col justify-end">
-                            <button 
+                            <button
                                 onClick={() => reset()}
                                 className="text-[10px] uppercase tracking-[0.3em] font-medium text-muted-fg hover:text-accent transition-colors flex items-center gap-2 self-end"
                             >
