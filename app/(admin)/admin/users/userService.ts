@@ -12,4 +12,4 @@ export async function fetchUserStore(user: UserStore) {
 
 export async function fetchUserDelete(id: string) {
     return fetchJsonDelete(parseApi(`users/${id}`))
-}
+}

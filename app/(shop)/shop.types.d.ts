@@ -64,4 +64,6 @@ export interface OrderStore {
         }
         quantity: number;
     }[]
+
+    createdAt?: string;
 }

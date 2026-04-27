@@ -1,11 +1,11 @@
 import PageHeader from "@/components/admin/PageHeader";
 import ProductForm from "../../ProductForm";
-import { fetchProductById } from "@/app/(main)/products/productService";
 import { notFound } from "next/navigation";
+import { fetchProductById } from "../../productService";
 
 export default async function EditProductPage({ params }: { params: { id: string } }) {
     const { id } = await params;
-    
+
     let product;
     try {
         product = await fetchProductById(id);
@@ -17,11 +17,11 @@ export default async function EditProductPage({ params }: { params: { id: string
 
     return (
         <div className="space-y-12">
-            <PageHeader 
-                title="Editar Producto" 
-                subtitle={`Modificando detalles de: ${product.name}`} 
+            <PageHeader
+                title="Editar Producto"
+                subtitle={`Modificando detalles de: ${product.name}`}
             />
-            
+
             <ProductForm initialData={product} isEditing />
         </div>
     );

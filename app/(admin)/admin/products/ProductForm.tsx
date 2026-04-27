@@ -2,16 +2,16 @@
 
 import { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
-import { Product } from "@/app/(main)/products/product.types";
 import { Category } from "@/app/(admin)/admin/categories/category.types";
 import { fetchCategoryList } from "@/app/(admin)/admin/categories/categoryService";
 import { Input } from "@/components/ui/Input";
 import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
-import { fetchProductStore, fetchProductUpdate } from "@/app/(main)/products/productService";
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
 import FormTextEditor from "@/components/FormTextEditor";
+import { Product } from "./product.types";
+import { fetchProductStore, fetchProductUpdate } from "./productService";
 
 interface ProductFormProps {
     initialData?: Product;
